@@ -1,260 +1,43 @@
-import { motion } from 'framer-motion'
-import { BookOpen, Code, Calculator, TrendingUp, Database, Globe, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import data from '@/data/personal.json'
 
-const courses = [
-  // Finance, Math & Business courses (grouped together)
-  { name: 'Statistics for Economics and Management', category: 'finance-math-business', icon: Calculator },
-  { name: 'Investment & Portfolio Analysis', category: 'finance-math-business', icon: TrendingUp },
-  { name: 'Portfolio Management', category: 'finance-math-business', icon: TrendingUp },
-  { name: 'Econometrics', category: 'finance-math-business', icon: Calculator },
-  { name: 'Intermediate Macroeconomics', category: 'finance-math-business', icon: Globe },
-  { name: 'Regression with Microdata', category: 'finance-math-business', icon: Calculator },
-  { name: 'Corporate Finance', category: 'finance-math-business', icon: TrendingUp },
-  { name: 'Financial Accounting', category: 'finance-math-business', icon: Calculator },
-  { name: 'Discrete Mathematics', category: 'finance-math-business', icon: Calculator },
-  { name: 'HONR-Business & the liberal arts', category: 'finance-math-business', icon: BookOpen },
-  
-  // CS courses (from resume)
-  { name: 'Object Oriented Software Development', category: 'cs', icon: Code },
-  { name: 'Foundations of Computation', category: 'cs', icon: Code },
-  { name: 'Computer Science I', category: 'cs', icon: Code },
-  { name: 'Data Structures', category: 'cs', icon: Database },
-  
-  // Miscellaneous courses (from resume)
-  { name: 'Contemporary Society', category: 'misc', icon: Globe },
-  { name: 'Intro Peace and Conflicts', category: 'misc', icon: Globe },
-  { name: 'Literature: Poetry, Fiction and Drama', category: 'misc', icon: BookOpen },
-  { name: 'Civic Education I', category: 'misc', icon: Globe },
-]
-
-const categoryColors = {
-  'finance-math-business': 'from-slate-600 to-slate-700',
-  cs: 'from-violet-500 to-purple-600',
-  misc: 'from-emerald-500 to-teal-600',
-}
-
-const categoryIcons = {
-  'finance-math-business': TrendingUp,
-  cs: Code,
-  misc: Globe,
-}
+const groups = [
+  { id: 'all', label: 'All' },
+  { id: 'finance', label: 'Finance' },
+  { id: 'cs', label: 'Computer Science' },
+] as const
 
 export default function CoursesBelt() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [isHovered, setIsHovered] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-
-  // Filter courses by selected category
-  const filteredCourses = selectedCategory 
-    ? courses.filter(course => course.category === selectedCategory)
-    : courses
-
-  // Reset current index when category changes, but ensure it's within bounds
-  useEffect(() => {
-    setCurrentIndex(0)
-  }, [selectedCategory])
-
-  // Ensure currentIndex is always within bounds of filteredCourses
-  useEffect(() => {
-    if (filteredCourses.length > 0 && currentIndex >= filteredCourses.length) {
-      setCurrentIndex(0)
-    }
-  }, [filteredCourses.length, currentIndex])
-
-  // Auto-advance courses
-  useEffect(() => {
-    if (!isPlaying || isHovered || filteredCourses.length === 0) return
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % filteredCourses.length)
-    }, 2000) // Change every 2 seconds
-
-    return () => clearInterval(interval)
-  }, [isPlaying, isHovered, filteredCourses.length])
-
-  const nextCourse = () => {
-    if (filteredCourses.length > 0) {
-      setCurrentIndex((prev) => (prev + 1) % filteredCourses.length)
-    }
-  }
-
-  const prevCourse = () => {
-    if (filteredCourses.length > 0) {
-      setCurrentIndex((prev) => (prev - 1 + filteredCourses.length) % filteredCourses.length)
-    }
-  }
-
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying)
-  }
-
-  // Safety check to prevent crashes
-  const currentCourse = filteredCourses.length > 0 ? filteredCourses[currentIndex] : null
-  const CategoryIcon = currentCourse ? categoryIcons[currentCourse.category as keyof typeof categoryIcons] : BookOpen
-  const colorClass = currentCourse ? categoryColors[currentCourse.category as keyof typeof categoryColors] : 'from-slate-500 to-slate-600'
+  const [filter, setFilter] = useState<(typeof groups)[number]['id']>('all')
+  const finance = data.education.coursework.finance.map((name) => ({ name, category: 'finance' as const }))
+  const cs = data.education.coursework.cs.map((name) => ({ name, category: 'cs' as const }))
+  const courses = [...finance, ...cs].filter((c) => filter === 'all' || c.category === filter)
 
   return (
-    <div className="relative py-8">
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 opacity-50 rounded-2xl"></div>
-      
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2 font-heading">
-            Academic Journey
-          </h3>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            Explore the diverse courses that shaped my knowledge
-          </p>
-        </div>
-
-        {/* Main Course Display */}
-        <div 
-          className="relative max-w-4xl mx-auto"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {currentCourse ? (
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
-            >
-              {/* Course Card */}
-              <div className={`relative bg-gradient-to-r ${colorClass} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300`}>
-                <div className="flex items-center justify-between">
-                  {/* Left side - Category and Course Info */}
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <CategoryIcon className="text-white" size={28} />
-                    </div>
-                    <div>
-                      <h4 className="text-2xl font-bold text-white mb-1 font-heading">
-                        {currentCourse.name}
-                      </h4>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-white/60"></div>
-                      <span className="text-white/80 text-sm capitalize font-medium">
-                        {currentCourse.category === 'cs' ? 'Computer Science' : 
-                         currentCourse.category === 'finance-math-business' ? 'Finance, Math & Business' :
-                         currentCourse.category === 'misc' ? 'Liberal Arts' : currentCourse.category}
-                      </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right side - Course Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <currentCourse.icon className="text-white" size={24} />
-                  </div>
-                </div>
-
-                {/* Progress Indicator */}
-                <div className="mt-6 flex justify-center">
-                  <div className="flex gap-2">
-                    {filteredCourses.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentIndex ? 'bg-white' : 'bg-white/30'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ) : (
-            <div className="relative bg-gradient-to-r from-slate-500 to-slate-600 rounded-2xl p-8 shadow-xl">
-              <div className="flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4">
-                    <BookOpen className="text-white" size={28} />
-                  </div>
-                  <h4 className="text-2xl font-bold text-white mb-2 font-heading">
-                    No courses found
-                  </h4>
-                  <p className="text-white/80 text-sm">
-                    Try selecting a different category
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button
-              onClick={prevCourse}
-              className="p-3 rounded-full bg-white/80 dark:bg-slate-700/80 hover:bg-white dark:hover:bg-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            >
-              <ChevronLeft className="text-slate-700 dark:text-slate-200" size={20} />
-            </button>
-
-            <button
-              onClick={togglePlayPause}
-              className="p-4 rounded-full bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            >
-              {isPlaying ? (
-                <Pause className="text-white" size={20} />
-              ) : (
-                <Play className="text-white" size={20} />
-              )}
-            </button>
-
-            <button
-              onClick={nextCourse}
-              className="p-3 rounded-full bg-white/80 dark:bg-slate-700/80 hover:bg-white dark:hover:bg-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            >
-              <ChevronRight className="text-slate-700 dark:text-slate-200" size={20} />
-            </button>
-          </div>
-
-          {/* Course Counter */}
-          <div className="text-center mt-4">
-            <span className="text-sm text-slate-600 dark:text-slate-400 font-mono">
-              {currentIndex + 1} of {filteredCourses.length}
-            </span>
-          </div>
-        </div>
-
-        {/* Course Categories Preview */}
-        <div className="mt-8 flex justify-center gap-2 flex-wrap">
+    <div>
+      <div className="flex flex-wrap gap-2 mb-6">
+        {groups.map((group) => (
           <button
-            onClick={() => setSelectedCategory(null)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
-              selectedCategory === null
-                ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300'
-                : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+            key={group.id}
+            type="button"
+            onClick={() => setFilter(group.id)}
+            className={`px-3 py-1 text-sm border ${
+              filter === group.id
+                ? 'bg-forest-500 text-paper border-forest-500'
+                : 'border-ink/15 dark:border-white/15 hover:border-forest-500'
             }`}
           >
-            <span>All Courses</span>
+            {group.label}
           </button>
-          {Object.entries(categoryIcons).map(([category, Icon]) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
-                selectedCategory === category
-                  ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300'
-                  : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
-              }`}
-            >
-              <Icon size={14} />
-              <span className="capitalize">
-                {category === 'cs' ? 'CS' : 
-                 category === 'finance-math-business' ? 'Finance, Math & Business' :
-                 category === 'misc' ? 'Liberal Arts' : category}
-              </span>
-            </button>
-          ))}
-        </div>
+        ))}
       </div>
+      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
+        {courses.map((course) => (
+          <li key={course.name} className="border-b border-ink/10 dark:border-white/10 py-2 text-sm">
+            {course.name}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

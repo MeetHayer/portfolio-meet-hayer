@@ -1,57 +1,72 @@
 {
   "name": "Manmeet Singh Hayer",
-  "tagline": "Finance & Computer Science Student | Data Analytics & Automation | Investment Banking & AI Enthusiast",
-  "bio": "I'm a finance analyst who codes. I use Python/VBA/SQL, Microsoft Office, BI and ERP tools to turn messy operational data into decisions—budget vs. actuals, variance patterns, unit economics—and build small automations that save real hours. I like ownership, tight feedback loops, and shipping useful tools fast. Senior at DePauw (Finance & CS), graduating May 2026; open to roles in corporate finance/FP&A, investment analysis & portfolio management, BNPL/fintech, and data-heavy product or analytics work.",
+  "tagline": "Finance & CS graduate · Associate Planner at OneAdvocate Financial · open to FP&A, investment analysis, and fintech roles",
+  "lede": "I turn large, messy datasets into decision-ready insights—automating reporting in VBA and Python, validating forecasts, and building finance web apps.",
+  "bio": "I'm a finance analyst who codes. I use Python, VBA, SQL, Excel, and BI/ERP tools to turn messy operational data into decisions—budget vs. actuals, variance patterns, unit economics—and build small automations that save real hours. Finance & CS graduate of DePauw University (May 2026). Currently Associate Planner at OneAdvocate Financial in Indianapolis, and open to full-time roles in corporate finance/FP&A, investment analysis, and data-heavy product or analytics work.",
   "email": "hayermanmeetsingh@gmail.com",
   "phone": "765-712-2527",
   "resumeUrl": "/resume.txt",
-  "location": "Greencastle, IN",
+  "location": "Indianapolis, IN",
+  "credentials": ["GMAT Focus Edition 735", "SIE", "Indiana Life, Health & Accident", "GPA 3.61"],
   "education": {
     "degree": "Bachelor of Arts: Finance & Computer Science",
     "school": "DePauw University",
     "graduation": "May 2026",
-    "gpa": "3.66/4.0",
-    "awards": ["Dean's List (Fall 2022, Spring 2023, Fall 2023, Spring 2025)", "Bloomberg BMC Certificate"],
+    "gpa": "3.61/4.0",
+    "awards": ["Dean's List", "CS Honor Society", "Bloomberg BMC Certificate"],
+    "certifications": ["SIE (Securities Industry Essentials)", "Indiana Life, Health & Accident producer license", "GMAT Focus Edition: 735"],
+    "coursework": {
+      "finance": ["Statistics & Econometrics", "Investment & Portfolio Analysis", "Portfolio Management", "Regression with Microdata", "Corporate Finance", "Financial Accounting", "International Finance"],
+      "cs": ["Computational Problem Solving", "Object-Oriented Software Development", "Data Structures & Algorithms"]
+    },
     "academicExcellence": [
-      "Management Fellows: selective business honors track; ambassador; alumni engagement, budgeting, and project work.",
-      "Bonner Scholars: four-year service scholarship; Community Plunge Leader; Alumni Ambassador; led teams and training while balancing full coursework.",
-      "Beta Theta Pi: fraternity leadership; organized service/awareness drives (incl. Gift of Life) leading to a successful stem-cell match.",
-      "Activities: Investment Group, Consulting Group, DePauwcapella."
+      "Management Fellows (Aug 2022 – May 2026): selective honors curriculum integrating management and entrepreneurship with the liberal arts; C-suite mentorship in leadership and strategic analysis.",
+      "Bonner Scholars (Aug 2022 – May 2026): four-year service fellowship; 140+ hours per semester and 500+ summer service hours; Alumni Ambassador, 2025–26.",
+      "Beta Theta Pi: fraternity leadership; organized service and awareness drives, including Gift of Life, leading to a successful stem-cell match."
     ]
   },
   "skills": {
-    "programming": ["Java", "Python", "C++", "VBA", "JavaScript", "Node.js", "React", "Vue.js", "HTML/CSS", "Bootstrap", "Git"],
-    "software": ["Microsoft Office", "Tableau", "Power BI", "Oracle EPM", "Anaplan", "SmartView", "Coupa", "Transcend", "Stata", "SQL", "VS Code", "Blender", "Hubspot", "Avogadro", "ZoomInfo", "Bloomberg Terminal"],
+    "programming": ["Python", "SQL", "VBA", "JavaScript", "Node.js", "React", "HTML/CSS", "C++", "Git"],
+    "software": ["Advanced Excel", "Power BI", "Tableau", "Bloomberg", "Oracle ERP/EPM", "Stata", "ZoomInfo", "VS Code", "Cursor", "Copilot", "Gemini"],
     "languages": ["English (Fluent)", "Hindi (Fluent)", "Punjabi (Fluent)"],
-    "finance": ["Financial Modeling", "DCF Analysis", "Portfolio Management", "Investment Analysis", "Corporate Finance", "Budget Analysis", "Forecasting", "Cash Flow Analysis", "Actuals vs Budget vs Forecast", "AP/AR Reconciliation", "Labor Budgeting", "PO/Invoice Resolving"],
-    "specializations": ["Data Analytics & Automation", "Financial Technology", "Investment Banking", "Debt Instruments", "Corporate Finance", "Full-Stack Development", "AI/ML", "Equity Analysis"]
+    "finance": ["Financial Modeling", "DCF Analysis", "Portfolio Management", "Investment Analysis", "Corporate Finance", "Budget vs. Actuals", "Forecasting", "Cash Flow Analysis", "AP/AR Reconciliation"],
+    "specializations": ["Data Analytics & Automation", "Financial Technology", "Corporate Finance", "Equity Analysis", "Full-Stack Development"]
   },
   "workExperience": [
+    {
+      "title": "Associate Planner",
+      "company": "OneAdvocate Financial",
+      "location": "Indianapolis, IN",
+      "period": "Jul 2026 – Present",
+      "description": "Support retirement and benefits outreach for client-employees, pairing licensing work with daily prospecting and planning documentation.",
+      "achievements": [
+        "Cleared Indiana Life & Health insurance producer licensing training and examination within two weeks.",
+        "Support outreach across 401(k) leads in ICHRA-favored counties via outbound calling (80+/day) and client referrals.",
+        "Prepare documentation, financial reviews, and retirement projections using Gradient Case Central and AdvisorTrack."
+      ]
+    },
     {
       "title": "FP&A Intern (Education)",
       "company": "ABM Industries",
       "location": "Atlanta, GA",
       "period": "Jun–Jul 2025",
-      "description": "Finance intern on Education FP&A supporting budgeting, forecasting, and labor variance reviews across ~$200M West Region accounts; learned Anaplan, Oracle EPM/SmartView, Power BI, Coupa, and Transcend within weeks to contribute to close/forecast workflows.",
+      "description": "Finance intern on Education FP&A supporting budgeting, forecasting, and labor variance reviews across ~$200M West Region accounts.",
       "achievements": [
-        "VBA Macro #1 — Region/Area/District Filterer: Built a robust Excel tool to filter multi-sheet workbooks by Region/Area/District with options for new file vs. new sheet, mass file creation (one-per-district), protected \"do-not-touch\" sheets, hidden-column handling, and fallback save paths; improved task time 40%+.",
-        "VBA Macro #2 — 52-Week Variance Builder: Exported 52-week Anaplan data and automated a single variance view per account (grouped FY26 vs. CY25 rows + color-graded variances) across 160+ accounts in 2 days, accelerating review prep.",
-        "Close Support: Assisted post-close actuals vs. forecast analysis for Northeast & Southeast (≈⅔ of Education), flagging discrepancies to refine the rolling forecast.",
-        "AP Support: Matched 100+ \"After-the-Fact\" POs to invoices in Coupa/Transcend, strengthening controls and data integrity."
+        "Designed a VBA Excel tool to filter multi-sheet workbooks by Region/Area/District—error handling, multi-format outputs, and cross-file compatibility; improved task efficiency by 40%.",
+        "Generated account savings ranging up to $20,000 by analyzing budgets vs. actuals for 160+ accounts (>$200M revenue) and automating 52-week Oracle EPM comparisons with VBA and Power BI.",
+        "Validated after-the-fact POs via Coupa and Transcend and updated BI dashboards to reflect current AP/AR."
       ]
     },
     {
-      "title": "Private Equity Intern",
+      "title": "Operations Intern",
       "company": "Founders Mosaic Partners",
       "location": "Indianapolis, IN",
       "period": "Aug–Dec 2024",
-      "description": "Blended operations + finance work for a manufacturing portfolio company (Jessen Mfg.) while supporting basic deal analytics.",
+      "description": "Operations and finance work for a manufacturing portfolio company (Jessen Mfg.), with supporting deal analytics.",
       "achievements": [
-        "Automated daily shipment logging with VBA, cutting processing time 50%+ and handling temp-file cleanup.",
-        "Reconciled $1M+ AR/AP weekly; reduced past-due noise and improved tracking.",
-        "Prospected 250+ manufacturing leads via ZoomInfo; generated 10+ new sales opportunities in <2 months.",
-        "Aided material-price-based requotes + paper→online transfer for Deere & S&C, improving revenue 5–10% per part.",
-        "Compared Shipment/Production/Inventory to surface overproduction issues; built cash-flow views from B/S and I/S and practiced DCF/CCA basics."
+        "Automated production and shipment KPI tracking with VBA and digitized legacy precision-parts pricing.",
+        "Reconciled $1M+ weekly AR/AP cash flows and conducted material-based repricing for two key clients.",
+        "Prospected 250+ targets via ZoomInfo, generated 10+ leads, and modeled historical cash flow for an LBO target."
       ]
     },
     {
@@ -59,23 +74,34 @@
       "company": "Chemistry & Biochemistry, DePauw",
       "location": "Greencastle, IN",
       "period": "Jun–Jul 2024",
-      "description": "Contributed to a web-based e-book project and molecular visuals.",
+      "description": "Contributed to a web-based e-book and molecular visuals on a Vue/Bootstrap/C++ stack, including Blender animations of bonding and orbitals.",
       "achievements": [
-        "Helped on a Vue/Bootstrap/C++ stack; created animations (bond shifting, orbital composition, lone-pair effects) in Blender; documented progress and tooling."
+        "Documented tooling and produced animations (bond shifting, orbital composition, lone-pair effects) for the course e-book."
       ]
     },
     {
       "title": "Food Service Worker",
       "company": "Bon Appétit Management Company",
       "location": "Hoover Dining Hall, DePauw University",
-      "period": "March 2023 – May 2024",
-      "description": "Worked 15+ hours/week while maintaining full-time coursework and 140+ hours of community service per semester. Handled diverse responsibilities from food preparation to delivery management.",
+      "period": "Mar 2023 – May 2024",
+      "description": "Worked 15+ hours/week while maintaining full coursework and 140+ hours of community service per semester.",
       "achievements": [
-        "Trained for heavily understaffed early morning delivery management shifts",
-        "Maintained permanent position while balancing full-time academics",
-        "Demonstrated adaptability across dishwashing, kitchen cleaning, and food prep",
-        "Managed Salad Bar operations and closing procedures during limited staffing"
+        "Covered understaffed early-morning delivery shifts and salad-bar closing while remaining in a permanent role."
       ]
+    }
+  ],
+  "leadership": [
+    {
+      "title": "Portfolio Manager",
+      "company": "DePauw Investment Group",
+      "period": "Aug 2023 – May 2026",
+      "description": "2025–26 Portfolio Manager for the Herman Crown fund (~15% of a $2M+ student fund), focused on ADRs and global markets. Trained and led seven student analysts on a global economy and sector stock-analysis report."
+    },
+    {
+      "title": "Chapter Founder",
+      "company": "Gift of Life Marrow Registry",
+      "period": "Feb 2023 – Present",
+      "description": "250+ students swabbed to date, 20+ members, 14 patient matches, and 2 life-saving transplants."
     }
   ],
   "volunteerExperience": [
@@ -86,12 +112,11 @@
       "location": "Indiana",
       "period": "Sep 2022 – Mar 2024",
       "tagline": "Expanding access to Indiana's 21st Century Scholarship",
-      "description": "Directed operations for a nonprofit restructured to improve enrollment into a statewide full-tuition scholarship program, blending outreach, training, and advocacy.",
+      "description": "Directed operations for a nonprofit restructured to improve enrollment into a statewide full-tuition scholarship program.",
       "achievements": [
-        "Frontlined \"Cornerstone\" reinvention of EDGE 21, building new roles, resources, and training kits for Outreach Coordinators, mentors, and high-school officials.",
-        "Partnered with 30+ Indiana high schools to expand student eligibility and improve program compliance.",
-        "Assisted in policy advocacy that helped trigger automatic eligibility-based enrollment into the 21st Century Scholarship in late 2023.",
-        "Skills: nonprofit leadership, project management, training design, policy advocacy, community partnerships."
+        "Helped rebuild EDGE 21 roles, resources, and training kits for coordinators, mentors, and high-school officials.",
+        "Partnered with 30+ Indiana high schools on eligibility and compliance.",
+        "Supported advocacy that helped trigger automatic eligibility-based enrollment in late 2023."
       ]
     },
     {
@@ -101,13 +126,10 @@
       "location": "DePauw University",
       "period": "Feb 2023 – Present",
       "tagline": "Building the national marrow donor registry",
-      "description": "Led comprehensive outreach campaigns to expand the national marrow donor registry, founded a campus club, and directly enabled life-saving stem cell transplants through strategic donor recruitment and education initiatives. By February 2026, Gift of Life @ DePauw will have helped save 2 lives from blood-related cancer.",
+      "description": "Founded a campus club and led donor recruitment that has enabled life-saving transplants.",
       "achievements": [
-        "Recruited 200+ swab registrations resulting in 12 successful donor matches, with another transplant scheduled for completion in January 2026.",
-        "Founded and established a campus club with a core executive team and 20+ active members, creating a sustainable platform for ongoing donor recruitment.",
-        "Educated campus community about blood cancer and stem cell treatment therapy through multiple channels including presentations, tabling events, and campus mixers.",
-        "Represented DePauw at the annual 2023-24 CAP (Campus Ambassador Program) Symposium in Boca Raton, FL, connecting with ambassadors nationwide and deepening knowledge of cancer treatment procedures.",
-        "Skills: club leadership, project management, budgeting, event planning, public speaking, networking."
+        "250+ swab registrations, 20+ members, 14 patient matches, and 2 transplants to date.",
+        "Represented DePauw at the 2023–24 CAP Symposium in Boca Raton, FL."
       ]
     },
     {
@@ -117,70 +139,36 @@
       "location": "Seasonal",
       "period": "Seasonal",
       "tagline": "Leadership and fundraising in a community setting",
-      "description": "Led daily activities, supervised campers, and ensured safety in a high-energy, team-based environment.",
+      "description": "Led daily activities and helped coordinate the annual blanket auction, contributing to $100k+ raised for camp operations.",
       "achievements": [
-        "Led daily activities, supervised campers, and ensured safety in a high-energy, team-based environment.",
-        "Helped coordinate the annual blanket auction (in-person + virtual), contributing to $100k+ raised for camp operations.",
-        "Built decision-making, event planning, and leadership skills in a fast-paced nonprofit environment.",
-        "Skills: event planning, fundraising, youth leadership, teamwork, adaptability."
+        "Built event-planning and leadership skills in a fast-paced nonprofit environment."
       ]
     }
   ],
   "projects": [
     {
-      "title": "Tigers vs. Cancer (Gift of Life)",
-      "tagline": "Saving a life",
-      "description": "Designed and executed a semester-long donor campaign at DePauw, combining outreach, creative incentives, and campus partnerships to exceed targets and directly enable a life-saving transplant.",
-      "stack": ["Project Management", "Marketing", "Community Outreach", "Event Planning", "C++", "Data Analysis"],
+      "title": "Finvestor",
+      "tagline": "Learning markets by building them",
+      "featured": true,
+      "description": "Interactive web app for learning market and portfolio concepts, built Aug–Dec 2025 with FastAPI, React, Tailwind, and PostgreSQL.",
+      "stack": ["Python", "FastAPI", "PostgreSQL", "React", "Tailwind", "ECharts", "pandas", "NumPy"],
       "achievements": [
-        "Surpassed 115% of target donors, outperforming ~90% of peer campuses nationwide.",
-        "Orchestrated the first successful stem-cell transplant from a DePauw donor — a 63-year-old leukemia patient matched with my Beta Theta Pi brother, Sam Applegate ('26).",
-        "Introduced a budget-based lottery: received ~$1 for each donor added to the registry and reinvested $80 of those funds into a raffle prize for early registrants, boosting urgency and participation.",
-        "Skills demonstrated: advertising, marketing, tabling, project planning, and networking."
+        "Engineered Finvestor as an interactive web app for market and portfolio education.",
+        "Implemented live stock-price charts and portfolio and risk-analysis models in Python (pandas, NumPy).",
+        "Used PostgreSQL to persist ticker/price history and portfolio holdings via SQLAlchemy / Alembic."
       ],
       "codeUrl": "",
       "demoUrl": ""
-    },
-    {
-      "title": "VBA Automation (ABM Industries)",
-      "tagline": "Taking initiative",
-      "description": "Built two VBA macro tools to automate core FP&A workflows, reducing manual hours and improving the accuracy of operational reporting across ABM's Education division.",
-      "stack": ["VBA", "Excel", "Error Handling", "Data Processing", "Financial Analysis"],
-      "achievements": [
-        "Filterer Macro: Automated filtering of large Excel workbooks by Region/Area/District, with options for new sheets or new files, error-handling, sheet protection, and safe save paths. Improved reporting efficiency by 40%+, cutting hours of manual copy-paste.",
-        "Variance Builder Macro: Processed 52-week Anaplan exports for 160+ accounts, generating single-sheet variance reports grouped by FY26 budgets vs. CY25 actuals/forecasts. Added color-grading and grouping, enabling reviewers to detect anomalies in 2 days instead of weeks.",
-        "Strengthened forecast accuracy and freed FP&A analysts to focus on higher-level review instead of data prep.",
-        "Skills: data formatting, Excel, Oracle ERP, VBA, automation"
-      ],
-      "codeUrl": "",
-      "demoUrl": ""
-    },
-    {
-      "title": "Actuarial Case Study — Pickles Mutual (CAS 298 Competition, Team Lead)",
-      "tagline": "Learning something new",
-      "description": "Led a team in an actuarial science case competition, learning advanced risk-based pricing on the fly and producing a defensible case study memo that placed 4th of 12 teams despite entering with no prior actuarial experience.",
-      "stack": ["Actuarial Science", "Risk Analysis", "Financial Modeling", "Insurance", "Data Analysis"],
-      "achievements": [
-        "Conducted research into historical loss data and competitor benchmarks.",
-        "Calculated pure premiums, applied expense and profit loads, and structured discounts using actuarial reasoning.",
-        "Wrote and presented a structured case study memo summarizing methods, assumptions, and recommendations for pricing reform.",
-        "Placed 4th out of 12 teams in competitive case study"
-      ],
-      "codeUrl": "",
-      "demoUrl": "/298.pdf"
     },
     {
       "title": "GE Vernova (NYSE: GEV) — Equity Investment Research Report",
-      "tagline": "GEV Investment Report | Dec 03-25",
-      "description": "Developed a full, analyst-grade equity investment research report on GE Vernova, replicating the structure and rigor of professional buy-side and sell-side research. The project was completed as part of FIN 365: Portfolio Management and focused on evaluating GE Vernova's long-term fundamentals, intrinsic value, and suitability for inclusion in an institutional portfolio such as the DePauw student endowment fund.",
-      "stack": ["Bloomberg (FA, DS, RV, Company Events)", "Equity Research", "Financial Modeling (DCF, SOTP, FCFF)", "Valuation", "Scenario Analysis", "Portfolio Analysis", "Excel", "Investment Writing"],
+      "tagline": "GEV Investment Report | Dec 2025",
+      "description": "Analyst-grade equity research on GE Vernova for FIN 365: Portfolio Management, evaluating fundamentals and suitability for an institutional student endowment.",
+      "stack": ["Bloomberg", "Equity Research", "DCF", "SOTP", "FCFF", "Excel"],
       "achievements": [
-        "Conducted business and industry analysis across GE Vernova's Power, Wind, and Electrification segments, with emphasis on backlog visibility, margin recovery, and secular demand drivers such as grid modernization and electrification.",
-        "Analyzed historical performance, focusing on post-2022 financials following the company's spin-off to establish a realistic baseline for forward projections.",
-        "Built segment-level revenue and margin forecasts aligned with management guidance and Bloomberg consensus, stress-tested across multiple market and execution scenarios.",
-        "Constructed a 7-year FCFF DCF model using two terminal value methodologies, alongside a Sum-of-the-Parts (SOTP) valuation to reflect differing growth and profitability profiles across segments.",
-        "Complemented intrinsic valuation with relative valuation analysis using EV/EBITDA and P/E multiples to benchmark GE Vernova against relevant peers.",
-        "Delivered a defensible BUY recommendation, supported by intrinsic value, improving profitability, and long-duration infrastructure demand rather than multiple expansion alone."
+        "Segment analysis across Power, Wind, and Electrification, with emphasis on backlog, margins, and grid modernization.",
+        "7-year FCFF DCF with two terminal-value methods plus SOTP and relative valuation (EV/EBITDA, P/E).",
+        "Delivered a BUY recommendation supported by intrinsic value and infrastructure demand rather than multiple expansion alone."
       ],
       "codeUrl": "",
       "demoUrl": "",
@@ -194,36 +182,88 @@
           "href": "/gev-project/Valuation Model- GEV.xlsm"
         }
       ]
+    },
+    {
+      "title": "VBA Automation (ABM Industries)",
+      "tagline": "Taking initiative",
+      "description": "Two VBA tools that automated core FP&A workflows across ABM Education reporting.",
+      "stack": ["VBA", "Excel", "Oracle EPM", "Power BI"],
+      "achievements": [
+        "Filterer macro: Region/Area/District filtering with multi-format outputs; 40%+ efficiency gain.",
+        "Variance builder: 52-week comparisons for 160+ accounts, compressing review prep from weeks to days."
+      ],
+      "codeUrl": "",
+      "demoUrl": ""
+    },
+    {
+      "title": "Tigers vs. Cancer (Gift of Life)",
+      "tagline": "Saving a life",
+      "description": "Semester-long donor campaign at DePauw that exceeded targets and helped enable a life-saving transplant.",
+      "stack": ["Project Management", "Outreach", "Event Planning"],
+      "achievements": [
+        "Surpassed 115% of target donors, outperforming ~90% of peer campuses.",
+        "Helped enable DePauw's first successful stem-cell transplant from a campus donor.",
+        "Reinvested registry incentives into an early-registrant raffle to boost urgency."
+      ],
+      "codeUrl": "",
+      "demoUrl": ""
+    },
+    {
+      "title": "Actuarial Case Study — Pickles Mutual (CAS 298 Competition, Team Lead)",
+      "tagline": "Learning something new",
+      "description": "Led a team in an actuarial pricing case, placing 4th of 12 with no prior actuarial background.",
+      "stack": ["Actuarial Science", "Risk Analysis", "Financial Modeling"],
+      "achievements": [
+        "Calculated pure premiums, expense and profit loads, and structured discounts.",
+        "Wrote and presented a case memo on methods, assumptions, and pricing reform.",
+        "Placed 4th of 12 teams."
+      ],
+      "codeUrl": "",
+      "demoUrl": "/298.pdf"
     }
   ],
   "programs": [
     {
       "name": "Management Fellows Program",
-      "period": "August 2022 - Present",
-      "description": "Selective honors program integrating management and entrepreneurship with liberal arts. Served as Ambassador 2023-24.",
+      "period": "August 2022 – May 2026",
+      "description": "Selective honors program integrating management and entrepreneurship with the liberal arts. Ambassador, 2023–24.",
       "achievements": ["Alumni engagement", "Budget allocation", "Strategic business analytics"]
     },
     {
       "name": "Bonner Scholars Program",
-      "period": "August 2022 – Present",
-      "description": "Highly selective 4-year program providing extensive community service training and comprehensive financial aid.",
-      "achievements": ["Social impact focus", "Community service training", "Full financial aid"]
+      "period": "August 2022 – May 2026",
+      "description": "Four-year service fellowship: 140+ hours per semester and 500+ summer hours. Alumni Ambassador, 2025–26.",
+      "achievements": ["Social impact", "Community service training", "Full cost scholarship"]
     }
   ],
   "posts": [
     {
+      "title": "Building & Pitching My First Investment Report — GE Vernova",
+      "slug": "gev-article",
+      "summary": "Walkthrough of an analyst-grade equity report and pitch for FIN 365: Portfolio Management.",
+      "date": "2025-12-18",
+      "tags": ["equity-research", "valuation", "portfolio-management"]
+    },
+    {
+      "title": "Are BNPL Stocks KLAR & SEZL Sitting on Gold Mines Ahead of November Earnings?",
+      "slug": "bnpl-article",
+      "summary": "Sector note on BNPL momentum, PayPal TPV, and the setup into November earnings.",
+      "date": "2025-11-01",
+      "tags": ["fintech", "bnpl", "earnings"]
+    },
+    {
       "title": "What Exactly Happened with Banks After JPMorgan's Q3 2025 Earnings?",
-      "slug": "jpmorgan-q3-2025-earnings-bank-analysis",
-      "summary": "Analyzing the market reaction to JPMorgan's Q3 2025 earnings and the broader implications for regional banks, featuring stock performance charts and market sentiment analysis.",
+      "slug": "jpmorgan-article",
+      "summary": "Market reaction to JPMorgan's Q3 2025 print and the knock-on for regional banks.",
       "date": "2025-10-19",
-      "tags": ["finance", "banking", "earnings", "market-analysis", "jpmorgan", "investment-analysis"]
+      "tags": ["finance", "banking", "earnings"]
     },
     {
       "title": "Hello, I'm Manmeet",
-      "slug": "hello-im-manmeet",
-      "summary": "A brief introduction about my journey from Punjab, India, to DePauw University, and my passion for financial modeling, technology, and making a difference.",
+      "slug": "introduction",
+      "summary": "From Punjab to DePauw: origin story, finance, and music.",
       "date": "2025-01-15",
-      "tags": ["introduction", "personal", "journey"]
+      "tags": ["introduction", "personal"]
     }
   ],
   "socials": {

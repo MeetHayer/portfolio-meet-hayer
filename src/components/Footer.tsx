@@ -1,10 +1,10 @@
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-border/50 bg-background/50 backdrop-blur-sm">
+    <footer className="border-t border-ink/10 dark:border-white/10">
       <div className="container py-8 text-center">
-        <p className="text-sm text-slate-600 dark:text-slate-300">
-          © {year} Manmeet Singh Hayer. All rights reserved.
+        <p className="text-sm text-ink/60 dark:text-paper/60">
+          © {year} Manmeet Singh Hayer
         </p>
       </div>
     </footer>

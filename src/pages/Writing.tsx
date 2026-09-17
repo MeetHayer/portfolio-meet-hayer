@@ -25,88 +25,39 @@ export default function Writing() {
   }
   
   return (
-    <div className="min-h-screen relative">
-      {/* Hero Section */}
-      <Section id="writing-hero" className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-accent-50 to-secondary-50 dark:from-primary-950 dark:via-accent-950 dark:to-secondary-950 opacity-50"></div>
-        <div className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6 max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-block"
-            >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-primary-600 via-accent-600 to-secondary-600 bg-clip-text text-transparent">
-                  Writing
-                </span>
-              </h1>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg lg:text-xl text-secondary-600 dark:text-secondary-400 leading-relaxed max-w-2xl mx-auto"
-            >
-              Deep dives into finance, markets, and technology — backed by data, driven by curiosity.
-            </motion.p>
-            
-            {/* Article Navigation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex justify-center gap-3 mt-12"
-            >
-              {[
-                { num: 4, id: 'gev-article', title: 'GE Vernova Report', color: 'from-violet-500 to-purple-600' },
-                { num: 3, id: 'bnpl-article', title: 'BNPL Analysis', color: 'from-primary-500 to-primary-600' },
-                { num: 2, id: 'jpmorgan-article', title: 'JPMorgan Earnings', color: 'from-accent-500 to-accent-600' },
-                { num: 1, id: 'introduction', title: 'About Me', color: 'from-secondary-500 to-secondary-600' }
-              ].map((article, idx) => (
-                <motion.button
-                  key={article.id}
-                  onClick={() => document.getElementById(article.id)?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group relative"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.7 + idx * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${article.color} text-white font-bold text-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300`}>
-                    {article.num}
-                  </div>
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                    <span className="text-xs text-secondary-600 dark:text-secondary-400 bg-white dark:bg-gray-800 px-2 py-1 rounded shadow-md">
-                      {article.title}
-                    </span>
-                  </div>
-                </motion.button>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
+    <div>
+      <Section id="writing-hero">
+        <p className="section-kicker">Notebook</p>
+        <h1 className="font-serif text-4xl md:text-6xl mb-4">Writing</h1>
+        <p className="max-w-2xl text-lg text-ink/70 dark:text-paper/70 mb-10">
+          Notes on markets, research process, and how I got here.
+        </p>
+        <ol className="divide-y divide-ink/10 dark:divide-white/10 border-y border-ink/10 dark:border-white/10">
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <button
+                type="button"
+                onClick={() => document.getElementById(post.slug)?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full text-left py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 hover:text-forest-600"
+              >
+                <span className="font-serif text-xl">{post.title}</span>
+                <span className="text-sm text-ink/50 dark:text-paper/50">{post.date}</span>
+              </button>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       {/* GE Vernova Investment Report - MOST RECENT POST */}
-      <Section id="gev-article" className="relative py-16">
-        {/* Timeline Dot */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-violet-500 dark:bg-violet-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10 top-8"></div>
+      <Section id="gev-article">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto relative z-20"
+          className="max-w-3xl"
         >
-          <article className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl transition-shadow duration-300 p-8 lg:p-12">
+          <article className="prose prose-neutral dark:prose-invert max-w-none">
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-500 flex items-center justify-center">
@@ -131,7 +82,7 @@ export default function Writing() {
                 <a
                   href={withBase('/gev-project/Hayer_GEV_Report.docx')}
                   download
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-semibold shadow-lg hover:shadow-xl"
+                  className="btn btn-primary"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -141,7 +92,7 @@ export default function Writing() {
                 <a
                   href={withBase('/gev-project/Valuation Model- GEV.xlsm')}
                   download
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-semibold shadow-lg hover:shadow-xl"
+                  className="btn"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -292,7 +243,7 @@ export default function Writing() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto relative z-20"
         >
-          <article className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl transition-shadow duration-300 p-8 lg:p-12">
+          <article className="prose prose-neutral dark:prose-invert max-w-none">
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-accent-500 to-primary-500 flex items-center justify-center">
@@ -585,7 +536,7 @@ export default function Writing() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto relative z-20"
         >
-          <article className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl transition-shadow duration-300 p-8 lg:p-12">
+          <article className="prose prose-neutral dark:prose-invert max-w-none">
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-accent-500 to-primary-500 flex items-center justify-center">
@@ -724,7 +675,7 @@ export default function Writing() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto relative z-20"
         >
-          <article className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl transition-shadow duration-300 p-8 lg:p-12">
+          <article className="prose prose-neutral dark:prose-invert max-w-none">
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-primary-500 to-accent-500 flex items-center justify-center">
@@ -751,7 +702,7 @@ export default function Writing() {
                 </p>
                 
                 <p>
-                  Two obsessions anchor me: math and music. After graduating next May, I plan to lean into both—professionally through finance and personally through music. On the finance side, I'm open to starting in either investment banking or corporate FP&A. I plan to pursue an MBA in the next 4-6 years, and over the next 5–10 years, intend to grow within IB—reaching at least junior associate (and ideally a PM track) before 30. As for Music, I'm constantly working on vocal sessions, learning new scales & sneakily preparing for global pop takeover.
+                  Two obsessions anchor me: math and music. I plan to lean into both—professionally through finance and personally through music. On the finance side, I'm open to starting in either investment banking or corporate FP&A. I plan to pursue an MBA in the next 4-6 years, and over the next 5–10 years, intend to grow within IB—reaching at least junior associate (and ideally a PM track) before 30. As for Music, I'm constantly working on vocal sessions, learning new scales & sneakily preparing for global pop takeover.
                 </p>
                 
                 <p>
@@ -759,7 +710,7 @@ export default function Writing() {
                 </p>
                 
                 <p>
-                  Right now, I'm a senior at DePauw building an investment-analysis and portfolio simulator as a foundation for more advanced models. I also manage a modest Robinhood account (since March '24; realized return ~8.5% to date). I'm open to opportunities—no geographic restrictions—across fintech and business, and I'm excited for what senior year and beyond will bring.
+                  I built Finvestor as a foundation for more advanced models. I also manage a modest Robinhood account (since March '24). I'm based in Indianapolis and open to full-time roles in FP&A, investment analysis, and fintech.
                 </p>
               </div>
 
@@ -785,7 +736,7 @@ export default function Writing() {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 text-white shadow-2xl hover:shadow-primary-500/50 hover:scale-110 transition-all duration-300"
+            className="fixed bottom-8 right-8 z-50 p-3 border border-ink/20 dark:border-white/20 bg-paper dark:bg-[#1c1814]"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Back to top"

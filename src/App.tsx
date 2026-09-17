@@ -20,8 +20,8 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Helmet>
-        <title>Portfolio</title>
-        <meta name="description" content="Personal portfolio and blog" />
+        <title>Manmeet Singh Hayer</title>
+        <meta name="description" content="Finance & Computer Science graduate. FP&A, investment analysis, and automation." />
       </Helmet>
 
       <Header />
