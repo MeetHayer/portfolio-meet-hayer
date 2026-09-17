@@ -2,6 +2,7 @@ import Section from '@/components/Section'
 import { motion } from 'framer-motion'
 import { Briefcase, GraduationCap, Award, Code, Database, TrendingUp, Users, Globe, ChevronDown, ChevronUp, ArrowDown, ArrowUp } from 'lucide-react'
 import data from '@/data/personal.json'
+import { withBase } from '@/lib/assets'
 import { useState } from 'react'
 
 // Expandable Box Component
@@ -151,7 +152,7 @@ export default function About() {
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('/mountain-bg-1.webp')"
+          backgroundImage: `url('${withBase('/mountain-bg-1.webp')}')`
         }}
       ></div>
       {/* Overlay for better text readability */}

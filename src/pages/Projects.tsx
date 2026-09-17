@@ -2,6 +2,7 @@ import Section from '@/components/Section'
 import ProjectCarsShowcase from '@/components/ProjectCarsShowcase'
 import { motion } from 'framer-motion'
 import { Code, TrendingUp, Zap, Heart } from 'lucide-react'
+import { withBase } from '@/lib/assets'
 
 export default function Projects() {
   return (
@@ -10,7 +11,7 @@ export default function Projects() {
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: "url('/mountain-bg-2.jpeg')"
+          backgroundImage: `url('${withBase('/mountain-bg-2.jpeg')}')`
         }}
       ></div>
       {/* Overlay for better text readability */}

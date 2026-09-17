@@ -1,6 +1,7 @@
 {
   "name": "portfolio-website",
   "private": true,
+  "homepage": "https://meethayer.github.io/portfolio-meet-hayer/",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

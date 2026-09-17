@@ -22,6 +22,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Play, Pause, ExternalLink, Github, Code, Heart, BookOpen, Zap, TrendingUp, Download } from 'lucide-react'
 import data from '@/data/personal.json'
+import { withBase } from '@/lib/assets'
 
 // Types
 type Project = {
@@ -58,7 +59,7 @@ export const projects: Project[] = (data.projects || []).map((p: any) => {
   const links: { label: string; href: string }[] = []
   
   if (p.demoUrl) {
-    links.push({ label: p.title.includes("CAS Case Study") ? "Review our pricing solution" : "View Demo", href: p.demoUrl })
+    links.push({ label: p.title.includes("CAS Case Study") ? "Review our pricing solution" : "View Demo", href: withBase(p.demoUrl) })
   }
   
   return {
@@ -70,7 +71,10 @@ export const projects: Project[] = (data.projects || []).map((p: any) => {
       bullets: p.achievements || [],
       skills: p.stack || [],
       links,
-      downloads: p.downloads || []
+      downloads: (p.downloads || []).map((download: { label: string; href: string }) => ({
+        ...download,
+        href: withBase(download.href)
+      }))
     }
   }
 })

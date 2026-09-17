@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowDown, Code, Briefcase, GraduationCap, Award, Mail, Phone, MapPin, Database, TrendingUp, Zap, Linkedin } from 'lucide-react'
 import data from '@/data/personal.json'
+import { withBase } from '@/lib/assets'
 import { useState, useEffect } from 'react'
 import CoursesBelt from '@/components/CoursesBelt'
 
@@ -434,7 +435,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/swiss-alps-lake.jpg')",
+            backgroundImage: `url('${withBase('/swiss-alps-lake.jpg')}')`,
             backgroundPosition: 'center 35%', // shows horizon + sun nicely
           }}
         />
@@ -446,19 +447,17 @@ export default function Home() {
         " />
 
         {/* Top-left mini badge (desktop only) */}
-        <a 
-          href="https://www.meethayer.com/" 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <Link 
+          to="/"
           className="hidden md:flex absolute top-8 left-8 items-center gap-3 bg-white/70 dark:bg-slate-900/60 text-slate-800 dark:text-slate-100 border border-white/30 dark:border-white/10 rounded-2xl shadow-lg backdrop-blur px-3 py-2 hover:bg-white/80 dark:hover:bg-slate-900/80 transition-all duration-300 cursor-pointer"
         >
-          <img src="/Dreamwave-Photo.png" alt="Manmeet"
+          <img src={withBase('/Dreamwave-Photo.png')} alt="Manmeet"
                className="w-10 h-8 rounded-full object-cover object-top ring-2 ring-white/80 dark:ring-white/30" />
           <div className="text-sm leading-tight">
             <div className="font-semibold">B.A. — Finance &amp; CS</div>
             <div className="opacity-80">DePauw University '26</div>
           </div>
-        </a>
+        </Link>
 
         {/* Content container */}
         <div className="relative z-10 max-w-7xl mx-auto px-1 sm:px-2 lg:px-3 xl:px-1 py-16 md:py-24">
@@ -537,7 +536,7 @@ export default function Home() {
                              rounded-3xl shadow-2xl overflow-hidden"
                 >
                   <img
-                    src="/Dreamwave-Photo 2.png"
+                    src={withBase('/Dreamwave-Photo 2.png')}
                     alt="Manmeet Singh Hayer"
                     className="w-full h-64 sm:h-72 md:h-96 object-cover rounded-2xl"
                   />

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Code, ExternalLink, Github, Heart, BookOpen, Zap, TrendingUp } from 'lucide-react'
 import { type Project } from './ProjectCard'
+import { withBase } from '@/lib/assets'
 
 interface FloatingProjectProps {
   project: Project
@@ -233,7 +234,7 @@ export default function FloatingProject({ project, index, isSelected, onSelect, 
               <div className="flex gap-4 pt-4">
                 {project.demoUrl && (
                   <a
-                    href={project.demoUrl}
+                    href={withBase(project.demoUrl)}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-500 to-purple-600 text-white rounded-xl font-semibold hover:from-violet-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"

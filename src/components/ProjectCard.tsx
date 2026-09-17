@@ -1,4 +1,5 @@
 import { Github, ExternalLink, Award, Zap, TrendingUp } from 'lucide-react'
+import { withBase } from '@/lib/assets'
 
 export type Project = {
   title: string
@@ -72,7 +73,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.demoUrl && (
             <a 
               className="btn btn-secondary group/btn" 
-              href={project.demoUrl} 
+              href={withBase(project.demoUrl)} 
               target="_blank" 
               rel="noreferrer"
             >

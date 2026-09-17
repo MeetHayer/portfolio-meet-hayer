@@ -2,6 +2,7 @@ import Section from '@/components/Section'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, Tag, MapPin, Heart, Music, TrendingUp, ChevronDown, ArrowUp } from 'lucide-react'
 import data from '@/data/personal.json'
+import { withBase } from '@/lib/assets'
 import { useState, useEffect } from 'react'
 
 type Post = { title: string; slug: string; summary: string; date: string; tags: string[] }
@@ -128,7 +129,7 @@ export default function Writing() {
               {/* Download Links - Always Visible */}
               <div className="my-6 flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="/gev-project/Hayer_GEV_Report.docx"
+                  href={withBase('/gev-project/Hayer_GEV_Report.docx')}
                   download
                   className="flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-semibold shadow-lg hover:shadow-xl"
                 >
@@ -138,7 +139,7 @@ export default function Writing() {
                   Download Full Report (Word)
                 </a>
                 <a
-                  href="/gev-project/Valuation Model- GEV.xlsm"
+                  href={withBase('/gev-project/Valuation Model- GEV.xlsm')}
                   download
                   className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-semibold shadow-lg hover:shadow-xl"
                 >
@@ -156,7 +157,7 @@ export default function Writing() {
                   className="w-full rounded-lg border border-gray-200 dark:border-gray-700"
                   preload="metadata"
                 >
-                  <source src="/writing-articles/Hayer_GEV_Presentation.mp4" type="video/mp4" />
+                  <source src={withBase('/writing-articles/Hayer_GEV_Presentation.mp4')} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <p className="text-sm text-gray-600 dark:text-gray-400 italic mt-2 text-center">
@@ -614,11 +615,11 @@ export default function Writing() {
               {/* Stock Chart - Always Visible */}
               <div className="my-6">
                 <img 
-                  src="/yahoo-finance-jpm-chart.png" 
+                  src={withBase('/yahoo-finance-jpm-chart.png')} 
                   alt="JPMorgan Chase & Co. (JPM) - 5 Day Performance Chart from Yahoo Finance"
                   className="w-full rounded-lg border border-gray-200 dark:border-gray-700"
                   onError={(e) => {
-                    e.currentTarget.src = '/writing-articles/Picture1.png';
+                    e.currentTarget.src = withBase('/writing-articles/Picture1.png');
                   }}
                 />
                 <p className="text-sm text-gray-600 dark:text-gray-400 italic mt-2 text-center">
