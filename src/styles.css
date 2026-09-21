@@ -141,16 +141,10 @@ html.dark ::-webkit-scrollbar-track {
   color: #34d399;
 }
 
-.project-screen h2,
-.project-screen p {
-  color: #e8f8ef;
-}
-
 .project-wheel {
-  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: visible;
 }
 
-.project-segment {
-  transform-origin: center center;
-  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s, color 0.2s;
+.project-wheel g {
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
 }

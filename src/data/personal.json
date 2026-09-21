@@ -196,18 +196,6 @@
       ]
     },
     {
-      "title": "VBA Automation (ABM Industries)",
-      "tagline": "Taking initiative",
-      "description": "Two VBA tools that automated core FP&A workflows across ABM Education reporting.",
-      "stack": ["VBA", "Excel", "Oracle EPM", "Power BI"],
-      "achievements": [
-        "Filterer macro: Region/Area/District filtering with multi-format outputs; 40%+ efficiency gain.",
-        "Variance builder: 52-week comparisons for 160+ accounts, compressing review prep from weeks to days."
-      ],
-      "codeUrl": "",
-      "demoUrl": ""
-    },
-    {
       "title": "Actuarial Case Study — Pickles Mutual (CAS 298 Competition, Team Lead)",
       "tagline": "Learning something new",
       "description": "Led a team in an actuarial pricing case, placing 4th of 12 with no prior actuarial background.",

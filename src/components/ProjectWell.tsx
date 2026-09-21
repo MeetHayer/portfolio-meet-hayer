@@ -5,6 +5,42 @@ import { withBase } from '@/lib/assets'
 
 type Project = (typeof data.projects)[number]
 
+const CX = 200
+const CY = 200
+const R_OUTER = 186
+const R_INNER = 118
+const R_TEXT = 152
+const GAP = 5
+
+function polar(r: number, deg: number) {
+  const a = (deg * Math.PI) / 180
+  return { x: CX + r * Math.cos(a), y: CY + r * Math.sin(a) }
+}
+
+function donutSlice(a0: number, a1: number) {
+  const large = a1 - a0 > 180 ? 1 : 0
+  const o0 = polar(R_OUTER, a0)
+  const o1 = polar(R_OUTER, a1)
+  const i1 = polar(R_INNER, a1)
+  const i0 = polar(R_INNER, a0)
+  return `M ${o0.x} ${o0.y} A ${R_OUTER} ${R_OUTER} 0 ${large} 1 ${o1.x} ${o1.y} L ${i1.x} ${i1.y} A ${R_INNER} ${R_INNER} 0 ${large} 0 ${i0.x} ${i0.y} Z`
+}
+
+function arc(r: number, a0: number, a1: number) {
+  const large = Math.abs(a1 - a0) > 180 ? 1 : 0
+  const sweep = a1 >= a0 ? 1 : 0
+  const p0 = polar(r, a0)
+  const p1 = polar(r, a1)
+  return `M ${p0.x} ${p0.y} A ${r} ${r} 0 ${large} ${sweep} ${p1.x} ${p1.y}`
+}
+
+function wheelLabel(project: Project) {
+  if (project.title.startsWith('Finvestor')) return 'FINVESTOR'
+  if (project.title.includes('GE Vernova')) return 'GEV MODEL'
+  if (project.title.includes('Actuarial')) return 'CAS 298'
+  return project.title.slice(0, 18).toUpperCase()
+}
+
 export default function ProjectWell() {
   const projects = data.projects
   const count = projects.length
@@ -22,10 +58,10 @@ export default function ProjectWell() {
     let cancelled = false
     const loop = async () => {
       while (!cancelled) {
-        await new Promise((r) => setTimeout(r, 1600))
+        await new Promise((r) => setTimeout(r, 1700))
         if (cancelled || hoverRef.current !== null) continue
         setIndex((prev) => (prev + 1) % count)
-        await new Promise((r) => setTimeout(r, 1100))
+        await new Promise((r) => setTimeout(r, 1050))
       }
     }
     loop()
@@ -39,46 +75,52 @@ export default function ProjectWell() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setActive(shown)}
-        className="project-screen w-full text-left mb-10 p-8 md:p-12"
-      >
-        <p className="section-kicker">Display</p>
-        <h2 className="font-serif text-3xl md:text-5xl max-w-3xl">{shown.title}</h2>
-        <p className="mt-2 italic text-ink/60 dark:text-paper/60">{shown.tagline}</p>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/75 dark:text-paper/75">{shown.description}</p>
-        <p className="mt-4 text-sm">{shown.stack.join(' · ')}</p>
-      </button>
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+        <button
+          type="button"
+          onClick={() => setActive(shown)}
+          className="project-screen h-full min-h-[420px] text-left p-8 md:p-10 flex flex-col justify-center"
+        >
+          <p className="section-kicker">Display</p>
+          <h2 className="font-serif text-3xl md:text-4xl">{shown.title}</h2>
+          <p className="mt-2 italic opacity-80">{shown.tagline}</p>
+          <p className="mt-5 text-base md:text-lg leading-relaxed opacity-90">{shown.description}</p>
+          <p className="mt-4 text-sm opacity-70">{shown.stack.join(' · ')}</p>
+        </button>
 
-      <div className="flex flex-col items-center">
-        <p className="section-kicker mb-6">Roll</p>
-        <div className="relative w-[min(100%,28rem)] aspect-square">
-          <div
-            className="project-wheel absolute inset-[12%] rounded-full border-2 border-ink/15 dark:border-white/15"
-            style={{ transform: `rotate(${rotation}deg)` }}
-          />
-          {projects.map((project, i) => {
-            const angle = i * step
-            const lit = (hoverIndex ?? index) === i
-            return (
-              <button
-                key={project.title}
-                type="button"
-                className={`project-segment absolute left-1/2 top-1/2 w-36 -ml-[4.5rem] -mt-8 text-center px-3 py-2 text-sm leading-tight transition-colors duration-200 ${
-                  lit ? 'bg-forest-500 text-paper' : 'bg-paper dark:bg-[#1c1814] border border-ink/15 dark:border-white/15'
-                }`}
-                style={{
-                  transform: `rotate(${angle + rotation}deg) translateY(-10.5rem) rotate(${-(angle + rotation)}deg)`,
-                }}
-                onMouseEnter={() => setHoverIndex(i)}
-                onMouseLeave={() => setHoverIndex(null)}
-                onClick={() => setActive(project)}
-              >
-                {project.tagline || project.title}
-              </button>
-            )
-          })}
+        <div className="flex items-center justify-center">
+          <svg viewBox="0 0 400 400" className="w-full max-w-[28rem] project-wheel" aria-label="Project wheel">
+            <g style={{ transform: `rotate(${rotation}deg)`, transformOrigin: '200px 200px' }}>
+              {projects.map((project, i) => {
+                const a0 = -90 + i * step + GAP / 2
+                const a1 = -90 + (i + 1) * step - GAP / 2
+                const mid = (a0 + a1) / 2
+                const flipped = ((mid % 360) + 360) % 360 > 0 && ((mid % 360) + 360) % 360 < 180
+                const textD = flipped ? arc(R_TEXT, a1 - 1, a0 + 1) : arc(R_TEXT, a0 + 1, a1 - 1)
+                const lit = (hoverIndex ?? index) === i
+                const pathId = `wheel-arc-${i}`
+                return (
+                  <g key={project.title}>
+                    <path
+                      d={donutSlice(a0, a1)}
+                      fill={lit ? '#10b981' : '#1c211c'}
+                      className="cursor-pointer"
+                      onMouseEnter={() => setHoverIndex(i)}
+                      onMouseLeave={() => setHoverIndex(null)}
+                      onClick={() => setActive(project)}
+                    />
+                    <path id={pathId} d={textD} fill="none" />
+                    <text className="pointer-events-none" fill={lit ? '#ecfdf5' : '#d1fae5'} fontSize="13" fontWeight="600" letterSpacing="0.18em">
+                      <textPath href={`#${pathId}`} startOffset="50%" textAnchor="middle">
+                        {wheelLabel(project)}
+                      </textPath>
+                    </text>
+                  </g>
+                )
+              })}
+            </g>
+            <circle cx={CX} cy={CY} r={R_INNER - 6} fill="none" stroke="#10b981" strokeOpacity="0.25" strokeWidth="1" />
+          </svg>
         </div>
       </div>
 
