@@ -60,6 +60,7 @@ export default function ProjectWell() {
       while (!cancelled) {
         await new Promise((r) => setTimeout(r, 1700))
         if (cancelled || hoverRef.current !== null) continue
+        if (document.documentElement.classList.contains('click-preview-run')) continue
         setIndex((prev) => (prev + 1) % count)
         await new Promise((r) => setTimeout(r, 1050))
       }

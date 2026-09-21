@@ -149,48 +149,46 @@ html.dark ::-webkit-scrollbar-track {
   transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.click-preview-root {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  pointer-events: none;
+[data-click-preview='shade'] {
+  animation: click-preview-darken 3.5s cubic-bezier(0.45, 0, 0.2, 1) forwards;
 }
 
-.click-preview-shade {
-  position: fixed;
-  overflow: hidden;
-  border: 1px solid rgba(16, 185, 129, 0.55);
-  background:
-    linear-gradient(105deg, transparent 0%, transparent 40%, rgba(16, 185, 129, 0.42) 50%, transparent 60%, transparent 100%),
-    linear-gradient(180deg, rgba(246, 241, 232, 0.35), rgba(16, 185, 129, 0.12));
-  background-size: 220% 100%, 100% 100%;
-  animation: click-preview-fill 3.5s ease-in-out forwards;
+html.dark [data-click-preview='shade'] {
+  animation-name: click-preview-darken-dark;
 }
 
-html.dark .click-preview-shade {
-  background:
-    linear-gradient(105deg, transparent 0%, transparent 40%, rgba(16, 185, 129, 0.5) 50%, transparent 60%, transparent 100%),
-    linear-gradient(180deg, rgba(20, 17, 14, 0.45), rgba(16, 185, 129, 0.18));
-  background-size: 220% 100%, 100% 100%;
-}
-
-@keyframes click-preview-fill {
+@keyframes click-preview-darken {
   0% {
-    background-position: 100% 0, 0 0;
-    opacity: 0.35;
+    filter: brightness(1);
   }
-  55% {
-    opacity: 1;
+  18% {
+    filter: brightness(0.68);
+  }
+  76% {
+    filter: brightness(0.68);
   }
   100% {
-    background-position: -20% 0, 0 0;
-    opacity: 0;
+    filter: brightness(1);
+  }
+}
+
+@keyframes click-preview-darken-dark {
+  0% {
+    filter: brightness(1);
+  }
+  18% {
+    filter: brightness(0.52);
+  }
+  76% {
+    filter: brightness(0.52);
+  }
+  100% {
+    filter: brightness(1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .click-preview-shade {
-    animation-duration: 3.5s;
+  [data-click-preview='shade'] {
     animation-timing-function: linear;
   }
 }
