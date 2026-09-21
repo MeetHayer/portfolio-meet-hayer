@@ -7,7 +7,7 @@ export default function Projects() {
         <p className="section-kicker">Studio</p>
         <h1 className="font-serif text-4xl md:text-5xl">Projects</h1>
         <p className="mt-4 max-w-2xl text-ink/70 dark:text-paper/70 leading-relaxed">
-          Case studies in automation, equity research, product, and campus organizing. Open a piece for the full ledger.
+          Case studies in automation, equity research, and product. Hover the wheel to drive the screen.
         </p>
       </div>
       <div className="container">

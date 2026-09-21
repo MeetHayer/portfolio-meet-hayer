@@ -76,7 +76,11 @@ html.dark .section-title {
 }
 
 .section-kicker {
-  @apply text-[11px] uppercase tracking-[0.28em] text-forest-500 mb-3;
+  @apply text-[13px] sm:text-sm font-semibold uppercase tracking-[0.2em] text-forest-500 mb-3;
+}
+
+html.dark .section-kicker {
+  @apply text-forest-400;
 }
 
 .chip {
@@ -123,5 +127,30 @@ html.dark ::-webkit-scrollbar-track {
   background: #1c1814;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3d4f3f;
+  background: #10b981;
+}
+
+.project-screen {
+  background: #11150f;
+  color: #e8f8ef;
+  border: 10px solid #2a2f28;
+  box-shadow: inset 0 0 40px rgba(16, 185, 129, 0.12);
+}
+
+.project-screen .section-kicker {
+  color: #34d399;
+}
+
+.project-screen h2,
+.project-screen p {
+  color: #e8f8ef;
+}
+
+.project-wheel {
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-segment {
+  transform-origin: center center;
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s, color 0.2s;
 }

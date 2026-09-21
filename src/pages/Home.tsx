@@ -75,7 +75,7 @@ export default function Home() {
       <section className="py-16 md:py-20">
         <div className="container">
           <p className="section-kicker">In this issue</p>
-          <h2 className="section-title">Three places to start</h2>
+          <h2 className="section-title">A small Glimpse</h2>
           <div className="grid md:grid-cols-3 gap-px bg-ink/10 dark:bg-white/10 border border-ink/10 dark:border-white/10">
             {features.map((feature) => (
               <Link

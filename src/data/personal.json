@@ -1,28 +1,28 @@
 {
   "name": "Manmeet Singh Hayer",
   "tagline": "Finance & CS graduate · Associate Planner at OneAdvocate Financial · open to FP&A, investment analysis, and fintech roles",
-  "lede": "I turn large, messy datasets into decision-ready insights—automating reporting in VBA and Python, validating forecasts, and building finance web apps.",
-  "bio": "I'm a finance analyst who codes. I use Python, VBA, SQL, Excel, and BI/ERP tools to turn messy operational data into decisions—budget vs. actuals, variance patterns, unit economics—and build small automations that save real hours. Finance & CS graduate of DePauw University (May 2026). Currently Associate Planner at OneAdvocate Financial in Indianapolis, and open to full-time roles in corporate finance/FP&A, investment analysis, and data-heavy product or analytics work.",
+  "lede": "I like solving business problems. Need help finding bottlenecks in your funnel conversion? Want to save precious hours by automating a repetitive everyday workflow? Or just need someone who can read and paint a picture from endless rows of marketing/ logistical/ finacial data? I'm your guy. ",
+  "bio": "I'm a business analyst who codes. I've used Python, VBA, SQL, Excel, and BI/ERP tools to turn messy operational data into decisions—budget vs. actuals, variance patterns, unit economics—and built small to large-scale automations that save real hours. Finance & CS graduate of DePauw University (May 2026). Currently Associate Planner at OneAdvocate Financial in Indianapolis, and open to full-time roles in corporate finance/FP&A, investment analysis, and data-heavy product or analytics work.",
   "email": "hayermanmeetsingh@gmail.com",
   "phone": "765-712-2527",
   "resumeUrl": "/resume.txt",
   "location": "Indianapolis, IN",
-  "credentials": ["GMAT Focus Edition 735", "SIE", "Indiana Life, Health & Accident", "GPA 3.61"],
+  "credentials": ["GMAT Focus Edition 735", "||", "Securities Industry Essentials Certified", "||", "Indiana Life, Health & Accident", "||", "GPA 3.61- Finance & CS Major"],
   "education": {
     "degree": "Bachelor of Arts: Finance & Computer Science",
     "school": "DePauw University",
     "graduation": "May 2026",
     "gpa": "3.61/4.0",
-    "awards": ["Dean's List", "CS Honor Society", "Bloomberg BMC Certificate"],
-    "certifications": ["SIE (Securities Industry Essentials)", "Indiana Life, Health & Accident producer license", "GMAT Focus Edition: 735"],
+    "awards": ["Dean's List", "CS Honor Society", "Cum Laude"],
+    "certifications": ["SIE (Securities Industry Essentials)", "Indiana Life, Health & Accident producer license", "GMAT FE: 735"],
     "coursework": {
       "finance": ["Statistics & Econometrics", "Investment & Portfolio Analysis", "Portfolio Management", "Regression with Microdata", "Corporate Finance", "Financial Accounting", "International Finance"],
       "cs": ["Computational Problem Solving", "Object-Oriented Software Development", "Data Structures & Algorithms"]
     },
     "academicExcellence": [
       "Management Fellows (Aug 2022 – May 2026): selective honors curriculum integrating management and entrepreneurship with the liberal arts; C-suite mentorship in leadership and strategic analysis.",
-      "Bonner Scholars (Aug 2022 – May 2026): four-year service fellowship; 140+ hours per semester and 500+ summer service hours; Alumni Ambassador, 2025–26.",
-      "Beta Theta Pi: fraternity leadership; organized service and awareness drives, including Gift of Life, leading to a successful stem-cell match."
+      "Bonner Scholars (Aug 2022 – May 2026): four-year service fellowship; 140+ hours per semester and 500+ summer service hours; Alumni Ambassador, 2025–26 - Organized first alumni panel event; Chapter Founder: Gift of Life",
+      "Beta Theta Pi"
     ]
   },
   "skills": {
@@ -95,13 +95,24 @@
       "title": "Portfolio Manager",
       "company": "DePauw Investment Group",
       "period": "Aug 2023 – May 2026",
-      "description": "2025–26 Portfolio Manager for the Herman Crown fund (~15% of a $2M+ student fund), focused on ADRs and global markets. Trained and led seven student analysts on a global economy and sector stock-analysis report."
+      "description": "2025–26 Portfolio Manager for the Herman Crown fund (~15% of a $2M+ student fund), focused on ADRs and global markets. Trained and led seven student analysts on a global economy and sector stock-analysis report.",
+      "achievements": [
+        "Ran ~15% of a $2M+ student fund with an ADR and global-markets mandate.",
+        "Trained and led seven analysts on a global economy and sector stock-analysis report."
+      ]
     },
     {
       "title": "Chapter Founder",
       "company": "Gift of Life Marrow Registry",
       "period": "Feb 2023 – Present",
-      "description": "250+ students swabbed to date, 20+ members, 14 patient matches, and 2 life-saving transplants."
+      "description": "250+ students swabbed to date, 20+ members, 14 patient matches, and 2 life-saving transplants.",
+      "achievements": [
+        "Founded the campus chapter and built a 20+ member club.",
+        "250+ swab registrations, 14 patient matches, and 2 life-saving transplants to date.",
+        "Tigers vs. Cancer campaign: surpassed 115% of the donor target, outperforming ~90% of peer campuses.",
+        "Helped enable DePauw's first successful stem-cell transplant from a campus donor.",
+        "Reinvested registry incentives into an early-registrant raffle to boost urgency."
+      ]
     }
   ],
   "volunteerExperience": [
@@ -129,6 +140,7 @@
       "description": "Founded a campus club and led donor recruitment that has enabled life-saving transplants.",
       "achievements": [
         "250+ swab registrations, 20+ members, 14 patient matches, and 2 transplants to date.",
+        "Tigers vs. Cancer: surpassed 115% of target donors; helped enable DePauw's first campus-donor transplant.",
         "Represented DePauw at the 2023–24 CAP Symposium in Boca Raton, FL."
       ]
     },
@@ -191,19 +203,6 @@
       "achievements": [
         "Filterer macro: Region/Area/District filtering with multi-format outputs; 40%+ efficiency gain.",
         "Variance builder: 52-week comparisons for 160+ accounts, compressing review prep from weeks to days."
-      ],
-      "codeUrl": "",
-      "demoUrl": ""
-    },
-    {
-      "title": "Tigers vs. Cancer (Gift of Life)",
-      "tagline": "Saving a life",
-      "description": "Semester-long donor campaign at DePauw that exceeded targets and helped enable a life-saving transplant.",
-      "stack": ["Project Management", "Outreach", "Event Planning"],
-      "achievements": [
-        "Surpassed 115% of target donors, outperforming ~90% of peer campuses.",
-        "Helped enable DePauw's first successful stem-cell transplant from a campus donor.",
-        "Reinvested registry incentives into an early-registrant raffle to boost urgency."
       ],
       "codeUrl": "",
       "demoUrl": ""

@@ -231,11 +231,7 @@ export default function Writing() {
       </Section>
 
       {/* Featured Article - BNPL Stocks KLAR & SEZL - SECOND POST */}
-      <Section id="bnpl-article" className="relative py-16">
-        {/* Continuous Timeline Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-violet-300 via-primary-300 to-accent-300 dark:from-violet-700 dark:via-primary-700 dark:to-accent-700 h-full z-0 top-0 opacity-30"></div>
-        {/* Timeline Dot */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary-500 dark:bg-primary-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10 top-8"></div>
+      <Section id="bnpl-article">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -524,11 +520,7 @@ export default function Writing() {
       </Section>
 
       {/* JPMorgan Earnings Analysis - SECOND POST */}
-      <Section id="jpmorgan-article" className="relative py-16">
-        {/* Continuous Timeline Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary-300 via-accent-300 to-secondary-300 dark:from-primary-700 dark:via-accent-700 dark:to-secondary-700 h-full z-0 top-0 opacity-30"></div>
-        {/* Timeline Dot */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-accent-500 dark:bg-accent-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10 top-8"></div>
+      <Section id="jpmorgan-article">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -663,11 +655,7 @@ export default function Writing() {
       </Section>
 
       {/* Introduction Post - THIRD POST */}
-      <Section id="introduction" className="relative py-16">
-        {/* Continuous Timeline Line - spans from first post to end */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-accent-300 via-secondary-300 to-primary-300 dark:from-accent-700 dark:via-secondary-700 dark:to-primary-700 h-full z-0 top-0 opacity-30"></div>
-        {/* Timeline Dot */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-secondary-500 dark:bg-secondary-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10 top-8"></div>
+      <Section id="introduction">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

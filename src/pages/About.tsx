@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import Section from '@/components/Section'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import data from '@/data/personal.json'
 import { withBase } from '@/lib/assets'
 
 export default function About() {
+  const [openLead, setOpenLead] = useState<string | null>(null)
+  const [openVol, setOpenVol] = useState<string | null>(null)
+
   return (
     <div>
       <section className="border-b border-ink/10 dark:border-white/10">
@@ -13,11 +17,11 @@ export default function About() {
             <h1 className="font-serif text-4xl md:text-5xl mb-6">Who I am</h1>
             <div className="space-y-5 text-[17px] leading-relaxed text-ink/80 dark:text-paper/80 max-w-2xl">
               <p>
-                I grew up in a semi-urban town in Punjab, India, and came to DePauw University on a <strong>full cost scholarship</strong>.
-                Numbers were always my language; college opened finance—a field I never had access to at home.
+                I grew up in a semi-urban town in Punjab, India, and came to DePauw University on a <strong>full cost scholarship program</strong> grounded in community leadership training.
+                Numbers and Logic were always my language; DePauw exposed me to the world of business and finance.
               </p>
               <p>
-                I like problems where finance meets software: visualization, automation, planning, and investment analysis.
+                I like optimizing workflows, and building new ones from ideas. My niches- visualization, automation, planning, logistic analysis (numbers), and enviroment analysis.
                 I now live in Indianapolis as a Finance &amp; CS graduate (May 2026).
               </p>
               <p>
@@ -25,11 +29,11 @@ export default function About() {
               </p>
             </div>
           </div>
-          <figure>
+          <figure className="md:justify-self-end">
             <img
               src={withBase('/Dreamwave-Photo 2.png')}
               alt="Manmeet Singh Hayer"
-              className="w-full max-w-md object-cover object-top aspect-[4/5] grayscale-[20%]"
+              className="w-40 sm:w-48 object-cover object-top aspect-[4/5] grayscale-[20%]"
             />
             <figcaption className="mt-3 text-sm text-ink/50 dark:text-paper/50">
               {data.location} · {data.education.degree}
@@ -46,11 +50,11 @@ export default function About() {
             <h3 className="font-serif text-2xl">{data.education.degree}</h3>
             <p className="mt-1 text-ink/70 dark:text-paper/70">Graduated {data.education.graduation} · GPA {data.education.gpa}</p>
             <div className="mt-6">
-              <p className="text-xs uppercase tracking-[0.2em] mb-2">Awards</p>
+              <p className="text-xs uppercase tracking-[0.2em] mb-2">Acheivements</p>
               <p>{data.education.awards.join(' · ')}</p>
             </div>
             <div className="mt-6">
-              <p className="text-xs uppercase tracking-[0.2em] mb-2">Credentials</p>
+              <p className="text-xs uppercase tracking-[0.2em] mb-2">Certifications / Credentials</p>
               <ul className="space-y-1">
                 {data.education.certifications.map((item) => (
                   <li key={item}>{item}</li>
@@ -78,7 +82,7 @@ export default function About() {
               <p className="text-sm text-ink/50 dark:text-paper/50">{exp.period}</p>
               <div>
                 <h3 className="font-serif text-2xl">{exp.title}</h3>
-                <p className="text-forest-600 dark:text-forest-300 mt-1">
+                <p className="text-forest-600 dark:text-forest-400 mt-1">
                   {exp.company} · {exp.location}
                 </p>
                 <p className="mt-3 text-ink/75 dark:text-paper/75">{exp.description}</p>
@@ -97,14 +101,39 @@ export default function About() {
         <p className="section-kicker">Campus</p>
         <h2 className="section-title">Leadership</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {data.leadership.map((role) => (
-            <article key={role.title} className="border border-ink/10 dark:border-white/10 p-6">
-              <p className="text-sm text-ink/50 dark:text-paper/50">{role.period}</p>
-              <h3 className="font-serif text-2xl mt-2">{role.title}</h3>
-              <p className="text-forest-600 dark:text-forest-300 mt-1">{role.company}</p>
-              <p className="mt-3 leading-relaxed text-ink/75 dark:text-paper/75">{role.description}</p>
-            </article>
-          ))}
+          {data.leadership.map((role) => {
+            const id = `${role.title}-${role.company}`
+            const open = openLead === id
+            return (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setOpenLead(open ? null : id)}
+                className={`text-left border p-6 transition-colors ${
+                  open ? 'border-forest-500 bg-forest-50/60 dark:bg-forest-900/20' : 'border-ink/10 dark:border-white/10 hover:border-forest-500'
+                }`}
+              >
+                <p className="text-sm text-ink/50 dark:text-paper/50">{role.period}</p>
+                <h3 className="font-serif text-2xl mt-2">{role.title}</h3>
+                <p className="text-forest-600 dark:text-forest-400 mt-1">{role.company}</p>
+                <p className="mt-3 leading-relaxed text-ink/75 dark:text-paper/75">{role.description}</p>
+                <AnimatePresence>
+                  {open && 'achievements' in role && role.achievements && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="mt-4 space-y-2 text-sm leading-relaxed overflow-hidden"
+                    >
+                      {role.achievements.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </button>
+            )
+          })}
         </div>
       </Section>
 
@@ -112,21 +141,42 @@ export default function About() {
         <p className="section-kicker">Service</p>
         <h2 className="section-title">Volunteer briefs</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {data.volunteerExperience.map((volunteer, index) => (
-            <motion.article
-              key={volunteer.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className="border border-ink/10 dark:border-white/10 p-5"
-            >
-              <p className="text-xs uppercase tracking-[0.18em] text-forest-500">{volunteer.period}</p>
-              <h3 className="font-serif text-xl mt-3">{volunteer.title}</h3>
-              <p className="mt-1 text-sm">{volunteer.company}</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink/70 dark:text-paper/70">{volunteer.description}</p>
-            </motion.article>
-          ))}
+          {data.volunteerExperience.map((volunteer, index) => {
+            const open = openVol === volunteer.id
+            return (
+              <motion.button
+                key={volunteer.id}
+                type="button"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                onClick={() => setOpenVol(open ? null : volunteer.id)}
+                className={`text-left border p-5 transition-colors ${
+                  open ? 'border-forest-500 bg-forest-50/60 dark:bg-forest-900/20' : 'border-ink/10 dark:border-white/10 hover:border-forest-500'
+                }`}
+              >
+                <p className="text-sm uppercase tracking-[0.18em] text-forest-500">{volunteer.period}</p>
+                <h3 className="font-serif text-xl mt-3">{volunteer.title}</h3>
+                <p className="mt-1 text-sm">{volunteer.company}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink/70 dark:text-paper/70">{volunteer.description}</p>
+                <AnimatePresence>
+                  {open && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="mt-3 space-y-2 text-sm leading-relaxed overflow-hidden"
+                    >
+                      {volunteer.achievements.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            )
+          })}
         </div>
       </Section>
 
