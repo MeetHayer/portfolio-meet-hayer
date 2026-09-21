@@ -5,8 +5,8 @@ import data from '@/data/personal.json'
 import { withBase } from '@/lib/assets'
 
 export default function About() {
-  const [openLead, setOpenLead] = useState<string | null>(null)
-  const [openVol, setOpenVol] = useState<string | null>(null)
+  const [openLead, setOpenLead] = useState<Set<string>>(new Set())
+  const [openVol, setOpenVol] = useState<Set<string>>(new Set())
 
   return (
     <div>
@@ -103,12 +103,19 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-8">
           {data.leadership.map((role) => {
             const id = `${role.title}-${role.company}`
-            const open = openLead === id
+            const open = openLead.has(id)
             return (
               <button
                 key={id}
                 type="button"
-                onClick={() => setOpenLead(open ? null : id)}
+                onClick={() =>
+                  setOpenLead((prev) => {
+                    const next = new Set(prev)
+                    if (next.has(id)) next.delete(id)
+                    else next.add(id)
+                    return next
+                  })
+                }
                 className={`text-left border p-6 transition-colors ${
                   open ? 'border-forest-500 bg-forest-50/60 dark:bg-forest-900/20' : 'border-ink/10 dark:border-white/10 hover:border-forest-500'
                 }`}
@@ -142,7 +149,7 @@ export default function About() {
         <h2 className="section-title">Volunteer briefs</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {data.volunteerExperience.map((volunteer, index) => {
-            const open = openVol === volunteer.id
+            const open = openVol.has(volunteer.id)
             return (
               <motion.button
                 key={volunteer.id}
@@ -151,7 +158,14 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                onClick={() => setOpenVol(open ? null : volunteer.id)}
+                onClick={() =>
+                  setOpenVol((prev) => {
+                    const next = new Set(prev)
+                    if (next.has(volunteer.id)) next.delete(volunteer.id)
+                    else next.add(volunteer.id)
+                    return next
+                  })
+                }
                 className={`text-left border p-5 transition-colors ${
                   open ? 'border-forest-500 bg-forest-50/60 dark:bg-forest-900/20' : 'border-ink/10 dark:border-white/10 hover:border-forest-500'
                 }`}

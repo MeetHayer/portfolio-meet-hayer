@@ -17,7 +17,10 @@ export default function Header() {
   const resumeHref = withBase(data.resumeUrl)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 dark:bg-[#14110e]/90 dark:border-white/10 backdrop-blur-md">
+    <header
+      data-preview-skip
+      className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 dark:bg-[#14110e]/90 dark:border-white/10 backdrop-blur-md"
+    >
       <div className="container h-16 flex items-center justify-between gap-4">
         <Link
           to="/"

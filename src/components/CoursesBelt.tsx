@@ -20,6 +20,7 @@ export default function CoursesBelt() {
           <button
             key={group.id}
             type="button"
+            data-preview-skip
             onClick={() => setFilter(group.id)}
             className={`px-3 py-1 text-sm border ${
               filter === group.id

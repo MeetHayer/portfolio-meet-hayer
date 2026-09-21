@@ -8,21 +8,21 @@ export default function Home() {
   const resumeHref = withBase(data.resumeUrl)
   const features = [
     {
-      kicker: 'Now',
+      kicker: 'Currently',
       title: `${data.workExperience[0].title}, ${data.workExperience[0].company}`,
       dek: data.workExperience[0].description,
       to: '/about',
     },
     {
-      kicker: 'Build',
+      kicker: 'Built',
       title: 'Finvestor',
       dek: 'A FastAPI + React studio for live prices, portfolio math, and risk views.',
       to: '/projects',
     },
     {
-      kicker: 'Research',
+      kicker: 'Researched',
       title: 'GE Vernova equity report',
-      dek: 'DCF, SOTP, and a BUY call written for an institutional student fund.',
+      dek: 'Market analysis, valuation involving SOTP DCF + scenario analysis, and proper recommendation',
       to: '/writing',
     },
   ]

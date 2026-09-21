@@ -148,3 +148,49 @@ html.dark ::-webkit-scrollbar-track {
 .project-wheel g {
   transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+.click-preview-root {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+}
+
+.click-preview-shade {
+  position: fixed;
+  overflow: hidden;
+  border: 1px solid rgba(16, 185, 129, 0.55);
+  background:
+    linear-gradient(105deg, transparent 0%, transparent 40%, rgba(16, 185, 129, 0.42) 50%, transparent 60%, transparent 100%),
+    linear-gradient(180deg, rgba(246, 241, 232, 0.35), rgba(16, 185, 129, 0.12));
+  background-size: 220% 100%, 100% 100%;
+  animation: click-preview-fill 3.5s ease-in-out forwards;
+}
+
+html.dark .click-preview-shade {
+  background:
+    linear-gradient(105deg, transparent 0%, transparent 40%, rgba(16, 185, 129, 0.5) 50%, transparent 60%, transparent 100%),
+    linear-gradient(180deg, rgba(20, 17, 14, 0.45), rgba(16, 185, 129, 0.18));
+  background-size: 220% 100%, 100% 100%;
+}
+
+@keyframes click-preview-fill {
+  0% {
+    background-position: 100% 0, 0 0;
+    opacity: 0.35;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    background-position: -20% 0, 0 0;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .click-preview-shade {
+    animation-duration: 3.5s;
+    animation-timing-function: linear;
+  }
+}

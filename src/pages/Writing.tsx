@@ -37,6 +37,7 @@ export default function Writing() {
             <li key={post.slug}>
               <button
                 type="button"
+                data-preview-skip
                 onClick={() => document.getElementById(post.slug)?.scrollIntoView({ behavior: 'smooth' })}
                 className="w-full text-left py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 hover:text-forest-600"
               >
@@ -724,6 +725,7 @@ export default function Writing() {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
             onClick={scrollToTop}
+            data-preview-skip
             className="fixed bottom-8 right-8 z-50 p-3 border border-ink/20 dark:border-white/20 bg-paper dark:bg-[#1c1814]"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
