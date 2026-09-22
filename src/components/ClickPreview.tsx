@@ -17,6 +17,7 @@ function isPageOrSectionHead(el: Element) {
 function collectTargets() {
   return Array.from(document.querySelectorAll<HTMLElement>(SELECTOR)).filter((el) => {
     if (el.hasAttribute(ATTR) || el.closest(`[${ATTR}]`)) return false
+    if (el.classList.contains('click-preview-stroke')) return false
     if (isPageOrSectionHead(el)) return false
     if (el.querySelector(SELECTOR)) return false
     const style = window.getComputedStyle(el)
@@ -41,23 +42,53 @@ function shouldAutoAct(el: HTMLElement) {
   return tag === 'BUTTON' || el.getAttribute('role') === 'button' || tag === 'PATH'
 }
 
+function applyPreview(el: HTMLElement): () => void {
+  const computed = window.getComputedStyle(el)
+  const previousPosition = el.style.position
+  if (el.tagName !== 'PATH' && computed.position === 'static') el.style.position = 'relative'
+
+  el.setAttribute(ATTR, 'shade')
+
+  let stroke: SVGPathElement | null = null
+  if (el.tagName === 'PATH') {
+    stroke = el.cloneNode(false) as SVGPathElement
+    stroke.removeAttribute('id')
+    stroke.removeAttribute('class')
+    stroke.removeAttribute(ATTR)
+    stroke.classList.add('click-preview-stroke')
+    stroke.setAttribute('fill', 'none')
+    stroke.setAttribute('stroke-linejoin', 'round')
+    stroke.setAttribute('stroke-linecap', 'round')
+    stroke.setAttribute('pathLength', '1')
+    stroke.style.pointerEvents = 'none'
+    el.insertAdjacentElement('afterend', stroke)
+  }
+
+  return () => {
+    el.removeAttribute(ATTR)
+    if (el.tagName !== 'PATH') el.style.position = previousPosition
+    stroke?.remove()
+  }
+}
+
 export default function ClickPreview() {
   const location = useLocation()
 
   useEffect(() => {
     let cancelled = false
     let targets: HTMLElement[] = []
+    const cleanups: Array<() => void> = []
 
     const start = window.setTimeout(() => {
       if (cancelled) return
       document.documentElement.classList.add(RUN)
       targets = collectTargets()
-      for (const el of targets) el.setAttribute(ATTR, 'shade')
+      for (const el of targets) cleanups.push(applyPreview(el))
     }, 40)
 
     const finish = window.setTimeout(() => {
       if (cancelled) return
-      for (const el of targets) el.removeAttribute(ATTR)
+      for (const undo of cleanups) undo()
       document.documentElement.classList.remove(RUN)
       for (const el of targets) {
         if (shouldAutoAct(el)) el.click()
@@ -69,7 +100,7 @@ export default function ClickPreview() {
       window.clearTimeout(start)
       window.clearTimeout(finish)
       document.documentElement.classList.remove(RUN)
-      for (const el of targets) el.removeAttribute(ATTR)
+      for (const undo of cleanups) undo()
     }
   }, [location.pathname])
 
